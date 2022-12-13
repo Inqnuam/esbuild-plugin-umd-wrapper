@@ -3,7 +3,7 @@ import { readFile, stat, writeFile } from "fs/promises";
 import { umdFooter, defaultOptions } from "./lib/constants";
 import { getUmdBanner } from "./lib/getUmdBanner";
 import type { Plugin } from "esbuild";
-import type { UmdOptions } from "./index.d"
+import type { UmdOptions } from "./declaration"
 const fileCaches = new Map();
 
 const umdWrapper = (customOptions: UmdOptions = {}) => {

@@ -1,4 +1,4 @@
-import type { UmdOptions } from "../index.d";
+import type { UmdOptions } from "../declaration";
 export const defaultOptions: UmdOptions = {
   external: "inherit",
   libraryName: "",
