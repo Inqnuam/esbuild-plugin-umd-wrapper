@@ -6,6 +6,7 @@ esbuild.build({
   platform: "node",
   target: "es6",
   format: "cjs",
+  bundle: true,
   watch: process.env.DEV && {
     onRebuild: (error, result) => {
       console.log("Rebuild !");

@@ -3,13 +3,9 @@ import { readFile, stat, writeFile } from "fs/promises";
 import { umdFooter, defaultOptions } from "./lib/constants";
 import { getUmdBanner } from "./lib/getUmdBanner";
 import type { Plugin } from "esbuild";
+import type { UmdOptions } from "./index.d"
 const fileCaches = new Map();
 
-export interface UmdOptions {
-  libraryName?: string;
-  external?: "inherit" | string[];
-  amdLoaderName?: string;
-}
 const umdWrapper = (customOptions: UmdOptions = {}) => {
   let options: UmdOptions = { ...defaultOptions, ...customOptions };
 
@@ -85,4 +81,4 @@ const umdWrapper = (customOptions: UmdOptions = {}) => {
   return plugin;
 };
 
-export default umdWrapper;
+module.exports = umdWrapper
