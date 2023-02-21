@@ -34,7 +34,7 @@ export const alphabet = [
 ];
 
 export const umdFooter = `if (typeof module.exports == "object" && typeof exports == "object") {
-  module.exports = __toCommonJS(__copyProps(module.exports, exports));
+  module.exports = __copyProps(module.exports, exports);
 }
 return module.exports;
 }))`;
