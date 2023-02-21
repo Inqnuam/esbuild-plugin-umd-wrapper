@@ -33,7 +33,7 @@ export const alphabet = [
   "__dz",
 ];
 
-export const umdFooter = `if (typeof module.exports == "object" && typeof exports == "object") {
+export const umdFooter = `if (typeof module.exports == "object" && typeof exports == "object" && typeof __copyProps == "function") {
   module.exports = __copyProps(module.exports, exports);
 }
 return module.exports;
