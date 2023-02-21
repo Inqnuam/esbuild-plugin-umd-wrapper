@@ -10,7 +10,7 @@ const createWrapperWithLib = ({ depsKeys, depsValKey, amdLoader, lib, defineDeps
     } else {
       g["${lib}"] = f(${globalDeps});
     }
-  }}(this, (${depsKeys}) => {
+  }(this, (${depsKeys}) => {
 var exports = {};
 var module = { exports };
 var __deps = {${depsValKey}};
