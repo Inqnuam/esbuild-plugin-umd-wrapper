@@ -33,8 +33,20 @@ export const alphabet = [
   "__dz",
 ];
 
-export const umdFooter = `if (typeof module.exports == "object" && typeof exports == "object" && typeof __copyProps == "function") {
-  module.exports = __copyProps(module.exports, exports);
+export const umdFooter = `if (typeof module.exports == "object" && typeof exports == "object") {
+  var __cp = (to, from, except, desc) => {
+    if ((from && typeof from === "object") || typeof from === "function") {
+      for (let key of Object.getOwnPropertyNames(from)) {
+        if (!Object.prototype.hasOwnProperty.call(to, key) && key !== except)
+        Object.defineProperty(to, key, {
+          get: () => from[key],
+          enumerable: !(desc = Object.getOwnPropertyDescriptor(from, key)) || desc.enumerable,
+        });
+      }
+    }
+    return to;
+  };
+  module.exports = __cp(module.exports, exports);
 }
 return module.exports;
 }))`;
