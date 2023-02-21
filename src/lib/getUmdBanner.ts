@@ -1,16 +1,16 @@
 import { alphabet } from "./constants";
 const createWrapperWithLib = ({ depsKeys, depsValKey, amdLoader, lib, defineDeps, globalDeps, requireDeps }) => {
   return `(function (g, f) {
-  if (typeof ${amdLoader} === "function" && ${amdLoader}.amd) {
-  ${amdLoader}("${lib}", ${defineDeps}, f);
+    if ("object" == typeof exports && "object" == typeof module) {
+      module.exports = f(${requireDeps});
+    } else if ("function" == typeof ${amdLoader} && ${amdLoader}.amd) {
+      ${amdLoader}("${lib}", ${defineDeps}, f);
+    } else if ("object" == typeof exports) {
+      exports["${lib}"] = f(${requireDeps});
     } else {
-  if (typeof module === "object" && module.exports) {
-    module.exports = f(${requireDeps});
-  } else {
-    var root = typeof exports === 'object' ? exports : g;
-    root["${lib}"] = f(${globalDeps});
-  }
-  }}(typeof self !== 'undefined' ? self : this, (${depsKeys}) => {
+      g["${lib}"] = f(${globalDeps});
+    }
+  }}(this, (${depsKeys}) => {
 var exports = {};
 var module = { exports };
 var __deps = {${depsValKey}};
