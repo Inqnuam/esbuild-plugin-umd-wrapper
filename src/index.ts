@@ -1,10 +1,7 @@
-import path from "path";
-import { readFile, stat, writeFile } from "fs/promises";
 import { umdFooter, defaultOptions } from "./lib/constants";
 import { getUmdBanner } from "./lib/getUmdBanner";
 import type { Plugin } from "esbuild";
-import type { UmdOptions } from "./declaration"
-const fileCaches = new Map();
+import type { UmdOptions } from "./declaration";
 
 const umdWrapper = (customOptions: UmdOptions = {}) => {
   let options: UmdOptions = { ...defaultOptions, ...customOptions };
@@ -50,35 +47,11 @@ const umdWrapper = (customOptions: UmdOptions = {}) => {
           js: umdBanner,
         };
       }
-      if (external) {
-        build.onEnd(async (result) => {
-          const outputs = Object.keys(result.metafile.outputs);
-
-          for (const output of outputs) {
-            const filePath = path.resolve(output);
-            let cachedDate = fileCaches.get(filePath);
-            const { mtimeMs } = await stat(filePath);
-
-            if (!cachedDate || mtimeMs > cachedDate) {
-              cachedDate = 0;
-            }
-            if (!cachedDate) {
-              let fileContent = await readFile(filePath, { encoding: "utf-8" });
-
-              for (const ext of external) {
-                const regexPAt = new RegExp(`require\\("${ext}"\\)`, "g");
-                fileContent = fileContent.replace(regexPAt, `_umdReq("${ext}")`);
-              }
-              await writeFile(filePath, fileContent);
-              fileCaches.set(filePath, mtimeMs);
-            }
-          }
-        });
-      }
     },
   };
 
   return plugin;
 };
 
-module.exports = umdWrapper
+export default umdWrapper;
+export { umdWrapper };

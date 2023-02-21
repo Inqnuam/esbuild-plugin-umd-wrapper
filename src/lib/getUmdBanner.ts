@@ -12,9 +12,7 @@ const createWrapperWithLib = ({ depsKeys, depsValKey, amdLoader, lib, defineDeps
     }
   }(this, (${depsKeys}) => {
 var exports = {};
-var module = { exports };
-var __deps = {${depsValKey}};
-var _umdReq = (mod)=> typeof require == "undefined" ? __deps[mod] : require(mod);`;
+var module = { exports };`;
 };
 
 const createWrapper = ({ depsKeys, depsValKey, amdLoader, defineDeps, globalDeps, requireDeps }) => {
@@ -30,9 +28,7 @@ const createWrapper = ({ depsKeys, depsValKey, amdLoader, defineDeps, globalDeps
     for(var i in m) root[i] = m[i];
   }}(typeof self !== 'undefined' ? self : this, (${depsKeys}) => {
 var exports = {};
-var module = { exports };
-var __deps = {${depsValKey}};
-var _umdReq = (mod)=> typeof require == "undefined" ? __deps[mod] : require(mod);`;
+var module = { exports };`;
 };
 
 export const getUmdBanner = ({ external, amdLoader, lib }) => {

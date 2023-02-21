@@ -1,9 +1,9 @@
 {
   "name": "esbuild-plugin-umd-wrapper",
-  "version": "1.0.6-beta.1",
+  "version": "1.0.6",
   "description": "UMD wrapper for esbuild",
   "main": "dist/index.js",
-  "typings": "dist/declaration.d.ts",
+  "typings": "dist/index.d.ts",
   "author": "Inqnuam",
   "license": "MIT",
   "homepage": "https://github.com/inqnuam/esbuild-plugin-umd-wrapper",
@@ -20,12 +20,12 @@
     "define"
   ],
   "devDependencies": {
-    "@types/node": "^18.11.14",
-    "esbuild": "^0.16.5",
-    "typescript": "^4.9.4"
+    "@types/node": "^18.14.0",
+    "esbuild": "^0.17.10",
+    "typescript": "^4.9.5"
   },
   "scripts": {
-    "build": "tsc && node ./build.js",
-    "dev": "tsc && DEV=true node ./build.js"
+    "build": "node ./build.mjs",
+    "dev": "node ./build.mjs watch"
   }
 }
