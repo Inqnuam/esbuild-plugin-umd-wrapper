@@ -1,0 +1,12 @@
+.github
+.vscode
+.gitignore
+.npmignore
+.prettierrc.json
+node_modules
+yarn-error.log
+yarn.lock
+src
+build.mjs
+TODO.md
+tsconfig.json
