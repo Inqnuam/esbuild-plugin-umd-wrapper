@@ -11,7 +11,7 @@ const umdWrapper = (customOptions: UmdOptions = {}) => {
     setup(build) {
       const { initialOptions } = build;
       // @ts-ignore
-      if (initialOptions.format !== "umd") {
+      if (!["umd", "cjs"].includes(initialOptions.format)) {
         return;
       }
       const external = options.external == "inherit" ? initialOptions.external ?? [] : Array.isArray(options.external) ? options.external : [];

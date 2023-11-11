@@ -14,13 +14,13 @@ npm install -D esbuild-plugin-umd-wrapper
 
 ```js
 const esbuild = require("esbuild");
-const umdWrapper = require("esbuild-plugin-umd-wrapper");
+const { umdWrapper } = require("esbuild-plugin-umd-wrapper");
 
 esbuild
   .build({
     entryPoints: ["input.js"],
     outdir: "public",
-    format: "umd",
+    format: "umd", // or "cjs"
     bundle: true,
     plugins: [umdWrapper()],
   })
@@ -50,7 +50,7 @@ const umdWrapperOptions = {
 
 ## Notes
 
-The plugin will be triggered only if esbuild `format` is set to "umd".
+The plugin will be triggered only if esbuild `format` is set to "cjs" or "umd".
 Before esbuild execution the plugin will set that option to "cjs".
 By default `external` is inherited from your esbuild options. If you know what are you doing you can change that value to an array of strings. Ex:
 
