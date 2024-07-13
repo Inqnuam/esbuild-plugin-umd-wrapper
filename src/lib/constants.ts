@@ -33,7 +33,7 @@ export const alphabet = [
   "__dz",
 ];
 
-export const umdFooter = `if (typeof module.exports == "object" && typeof exports == "object") {
+export const umdFooter = `;if (typeof module.exports == "object" && typeof exports == "object") {
   var __cp = (to, from, except, desc) => {
     if ((from && typeof from === "object") || typeof from === "function") {
       for (let key of Object.getOwnPropertyNames(from)) {
