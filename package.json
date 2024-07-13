@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-umd-wrapper",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "UMD wrapper for esbuild",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

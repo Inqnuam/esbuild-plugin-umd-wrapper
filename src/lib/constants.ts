@@ -1,8 +1,11 @@
 import type { UmdOptions } from "../declaration";
+export const globalIdentifier = `typeof self !== 'undefined' ? self : typeof globalThis !== 'undefined' ? globalThis : this`;
+
 export const defaultOptions: UmdOptions = {
   external: "inherit",
   libraryName: "",
   amdLoaderName: "define",
+  globalIdentifier,
 };
 export const alphabet = [
   "__da",

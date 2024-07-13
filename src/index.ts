@@ -19,13 +19,16 @@ const umdWrapper = (customOptions: UmdOptions = {}) => {
         external,
         amdLoader: options.amdLoaderName,
         lib: options.libraryName,
+        globalIdentifier: options.globalIdentifier,
       };
       initialOptions.format = "cjs";
       initialOptions.metafile = true;
 
       if (initialOptions.footer) {
         if (initialOptions.footer.js) {
-          initialOptions.footer.js += umdFooter;
+          if (!initialOptions.footer.js.includes(umdFooter)) {
+            initialOptions.footer.js += umdFooter;
+          }
         } else {
           initialOptions.footer.js = umdFooter;
         }
@@ -38,7 +41,9 @@ const umdWrapper = (customOptions: UmdOptions = {}) => {
       const umdBanner = getUmdBanner(umdBannerOptions);
       if (initialOptions.banner) {
         if (initialOptions.banner.js) {
-          initialOptions.banner.js += umdBanner;
+          if (!initialOptions.banner.js.includes(umdBanner)) {
+            initialOptions.banner.js += umdBanner;
+          }
         } else {
           initialOptions.banner.js = umdBanner;
         }
