@@ -1,10 +1,11 @@
 {
-    "compilerOptions": {
-        "emitDeclarationOnly": true,
-        "declaration": true,
-        "esModuleInterop": true,
-        "outDir": "./dist",
-        "moduleResolution": "node",
-        "target": "ES2018"
-    }
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "target": "ES2018",
+    "skipLibCheck": true
+  }
 }
