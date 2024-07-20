@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js"></script>
+    <script>
+      requirejs.config({
+        paths: {
+          react: "https://unpkg.com/react@18.3.1/umd/react.development",
+          "react-dom/client": "https://unpkg.com/react-dom@18.3.1/umd/react-dom.development",
+          myAwsomeApp: "/app", // ".js" not mandatory
+        },
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="root">I'am an empty app</div>
+    <script>
+      // as we already defined "myAwsomeApp" inside RequireJS's paths config, we can require it with module identifier instead of file path
+      require(["myAwsomeApp"], function (myAwsomeApp) {
+        console.log("myAwsomeApp", myAwsomeApp);
+      });
+    </script>
+  </body>
+</html>

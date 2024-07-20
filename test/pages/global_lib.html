@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/myLib.js"></script>
+  </head>
+
+  <body>
+    <div id="root">check the logs</div>
+    <script>
+      // see {libraryName: "libraryForGlobalScope"} defined in the build options ./test/build.mjs:35
+      const myAppLib = window.libraryForGlobalScope;
+
+      console.log("isAppStarted", myAppLib.isAppStarted());
+      myAppLib.start();
+
+      console.log("isAppStarted", myAppLib.isAppStarted());
+      myAppLib.end();
+
+      console.log("isAppStarted", myAppLib.isAppStarted());
+    </script>
+  </body>
+</html>

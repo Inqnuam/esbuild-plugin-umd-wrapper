@@ -10,3 +10,4 @@ src
 build.mjs
 TODO.md
 tsconfig.json
+test

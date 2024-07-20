@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      var dojoConfig = {
+        async: true,
+        paths: {
+          react: "https://unpkg.com/react@18.3.1/umd/react.development",
+          "react-dom/client": "https://unpkg.com/react-dom@18.3.1/umd/react-dom.development",
+          myAwsomeApp: "/app", // ".js" must be ommited
+        },
+      };
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+  </head>
+
+  <body>
+    <div id="root">I'am an empty app</div>
+    <script>
+      require(["myAwsomeApp"], function (myAwsomeApp) {
+        console.log("myAwsomeApp", myAwsomeApp);
+      });
+    </script>
+  </body>
+</html>

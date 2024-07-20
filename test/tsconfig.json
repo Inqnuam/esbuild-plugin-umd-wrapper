@@ -6,7 +6,7 @@
     "outDir": "./dist",
     "moduleResolution": "node",
     "target": "ES2018",
-    "skipLibCheck": true
-  },
-  "exclude": ["test", "dist"]
+    "skipLibCheck": true,
+    "jsx": "react"
+  }
 }
